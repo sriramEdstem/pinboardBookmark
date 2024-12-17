@@ -8,7 +8,6 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { getBookmarks } from "../lib/actions";
-import Image from "next/image";
 import { Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
 export default async function Bookmarks() {
@@ -34,13 +33,9 @@ export default async function Bookmarks() {
                 <TableCell>{bookmark.title}</TableCell>
                 <TableCell>{bookmark.description}</TableCell>
                 <TableCell>
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-4">
                     <div>
-                      <img
-                        rel="icon"
-                        src={bookmark.favicon}
-                        style={{ width: "55%" }}
-                      />
+                      <img rel="icon" src={bookmark.favicon} width={30} />
                     </div>
                     <div>
                       <a
