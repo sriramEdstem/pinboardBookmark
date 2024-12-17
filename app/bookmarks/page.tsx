@@ -10,6 +10,7 @@ import {
 import { getBookmarks } from "../lib/actions";
 import Image from "next/image";
 import { Pencil2Icon, TrashIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 export default async function Bookmarks() {
   const bookmarks = await getBookmarks();
   return (
@@ -54,16 +55,15 @@ export default async function Bookmarks() {
                 </TableCell>
                 <TableCell>
                   <div className="ml-auto flex">
-                    <button
-                      // onClick={() => handleEdit(bookmark)}
-                      className="text-blue-500 hover:text-blue-700 mr-2"
+                    <Link
+                      href={`/create/edit/${encodeURIComponent(bookmark.id)}`}
                     >
-                      <Pencil2Icon />
-                    </button>
-                    <button
-                      // onClick={() => handleDelete(bookmark)}
-                      className="text-red-500 hover:text-red-700"
-                    >
+                      <button className="text-blue-500 hover:text-blue-700 mr-2">
+                        <Pencil2Icon />
+                      </button>
+                    </Link>
+
+                    <button className="text-red-500 hover:text-red-700">
                       <TrashIcon />
                     </button>
                   </div>
